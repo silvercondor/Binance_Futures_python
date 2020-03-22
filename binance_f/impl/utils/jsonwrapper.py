@@ -1,6 +1,7 @@
 import json
 from binance_f.exception.binanceapiexception import BinanceApiException
 
+
 class JsonWrapper:
     def __init__(self, json_object):
         self.json_object = json_object
@@ -8,7 +9,7 @@ class JsonWrapper:
     def __check_mandatory_field(self, name):
         if name not in self.json_object:
             raise BinanceApiException(BinanceApiException.RUNTIME_ERROR,
-                                    "[Json] Get json item field: " + name + " does not exist")
+                                      "[Json] Get json item field: " + name + " does not exist")
 
     def contain_key(self, name):
         if name in self.json_object:
@@ -81,7 +82,6 @@ class JsonWrapper:
         return items
 
 
-
 class JsonWrapperArray:
     def __init__(self, json_object):
         self.json_object = json_object
@@ -112,5 +112,4 @@ class JsonWrapperArray:
 
     def get_object_at(self, index):
         return JsonWrapper(self.json_object[index])
-
 

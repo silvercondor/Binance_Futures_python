@@ -28,7 +28,8 @@ def call_sync(request, verbose=False):
     if request.method == "GET":
         response = requests.get(
             request.host + request.url, headers=request.header)
-        json_wrapper = parse_json_from_string(response.text)
+        json_wrapper = parse_json_from_string(
+            response.text, response.status_code)
         if verbose:
             print(response.text)
         check_response(json_wrapper)
@@ -36,7 +37,8 @@ def call_sync(request, verbose=False):
     elif request.method == "POST":
         response = requests.post(
             request.host + request.url, headers=request.header)
-        json_wrapper = parse_json_from_string(response.text)
+        json_wrapper = parse_json_from_string(
+            response.text, response.status_code)
         if verbose:
             print(response.text)
         check_response(json_wrapper)
@@ -44,7 +46,8 @@ def call_sync(request, verbose=False):
     elif request.method == "DELETE":
         response = requests.delete(
             request.host + request.url, headers=request.header)
-        json_wrapper = parse_json_from_string(response.text)
+        json_wrapper = parse_json_from_string(
+            response.text, response.status_code)
         if verbose:
             print(response.text)
         check_response(json_wrapper)
@@ -52,7 +55,8 @@ def call_sync(request, verbose=False):
     elif request.method == "PUT":
         response = requests.put(
             request.host + request.url, headers=request.header)
-        json_wrapper = parse_json_from_string(response.text)
+        json_wrapper = parse_json_from_string(
+            response.text, response.status_code)
         if verbose:
             print(response.text)
         check_response(json_wrapper)
