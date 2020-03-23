@@ -24,8 +24,7 @@ class Order:
         result = Order()
         result.clientOrderId = json_data.get_string("clientOrderId")
         result.cumQuote = json_data.get_float("cumQuote")
-        result.executedQty = json_data.get_float_or_default(
-            "executedQty", None)
+        result.executedQty = json_data.get_float_or_default("executedQty", None)
         result.orderId = json_data.get_int("orderId")
         result.origQty = json_data.get_float("origQty")
         result.price = json_data.get_float("price")
@@ -40,6 +39,5 @@ class Order:
         result.workingType = json_data.get_string("workingType")
         result.avgPrice = json_data.get_float("avgPrice")
         result.origType = json_data.get_string("origType")
-        result.statusCode = json_data.get_string("status_code")
 
         return result
